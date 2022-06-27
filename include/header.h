@@ -37,6 +37,7 @@ typedef struct s_position
 
 typedef struct s_square
 {
+
     int    size;
     int    pos_row;
     int    pos_col;
