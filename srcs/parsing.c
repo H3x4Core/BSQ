@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:05:10 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 20:42:15 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:07:04 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	create_blank_map(t_map *map)
 			return (0);
 		i++;
 	}
-	map->valid = 0;
 	return (1);
 }
 
@@ -116,7 +115,6 @@ t_map	*parsing(char *str)
 		return (error_map(map, str));
 	if (!get_map_matrix(map, str))
 		return (error_map(map, str));
-	map->valid = 1;
 	free_str(str);
 	return (map);
 }
