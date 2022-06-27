@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 17:52:52 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:12:25 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main (void)
 	char *str;
 	char *filename = "./tools/map0";
 	
+	str = read_file(filename);
 	map = parsing(str);
 	debug_print_map_info(map);
 	debug_print_map(map);

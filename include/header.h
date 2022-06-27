@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 12:49:35 by mwinter           #+#    #+#             */
-/*   Updated: 2022/06/27 17:52:53 by matwinte         ###   ########.fr       */
+/*   Created: 2022/06/27 12:49:35 by matwinte          #+#    #+#             */
+/*   Updated: 2022/06/27 18:14:16 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_square
 //read_file.c
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*read_file(char *filename);
-int		free_str(char *str);
+t_map	*free_str(char *str);
 
 //parsing.c
 int		free_map(t_map *map);
@@ -56,7 +56,7 @@ int		get_map_matrix(t_map *map, char *str);
 t_map	*parsing(char *str);
 
 //parsing_helper.c
-int		get_map_height(char *str, int *nbr);
+int		get_map_height(char *str, int *nbr, int len);
 int		get_map_length(char *str, int *len);
 int		get_map_char(char c, char *cmap);
 int		get_next_line(char *str);
