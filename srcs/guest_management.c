@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:59:53 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/27 20:24:37 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:48:58 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*read_funny_words(void)
 	char	buffer[BUF_SIZE + 1];
 	int		len;
 	char	*str;
-	
+
 	len = 1;
 	str = (char *)malloc(BUF_SIZE + 1);
 	if (!str)

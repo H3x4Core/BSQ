@@ -6,13 +6,13 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 20:42:36 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:48:36 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_map	*map;
 	int		i;

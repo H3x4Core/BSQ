@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:00:27 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 20:27:59 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:50:10 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ int	get_next_line(char *str)
 	return (i);
 }
 
-t_map *error_map(t_map *map, char *str)
+t_map	*error_map(t_map *map, char *str)
 {
-	if(map)
+	if (map)
 		free_map(map);
-	if(str)
+	if (str)
 		free(str);
 	write(2, "map error\n", 10);
 	return (NULL);
