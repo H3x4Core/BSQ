@@ -6,15 +6,15 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:49:35 by mwinter           #+#    #+#             */
-/*   Updated: 2022/06/27 14:39:46 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 17:09:17 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# include <fcntl.h>	// open
-# include <unistd.h> // close, read, write
+# include <fcntl.h>		// open
+# include <unistd.h>	// close, read, write
 # include <stdlib.h>	// malloc
 
 # define BUF_SIZE 4096
@@ -48,12 +48,21 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*read_file(char *filename);
 
 //parsing.c
+int		free_map(t_map *map);
+int		create_blank_map(t_map *map);
+int		get_map_info(t_map *map, char *str);
+int		get_map_matrix(t_map *map, char *str);
+t_map	*parsing(char *filename);
 
-//ft_atoi.c
-int	ft_char_is_numeric(char c);
-int	ft_char_is_sign(char c);
-int	ft_isspace(char c);
-int	ft_atoi(char *str);
+//parsing_helper.c
+int		get_map_height(char *str, int *nbr);
+int		get_map_length(char *str, int *len);
+int		get_map_char(char c, char *cmap);
+int		get_next_line(char *str);
+
+//parsing_utils.c
+int		ft_char_is_numeric(char c);
+int		ft_char_is_printable(char c);
 
 #endif
 
@@ -62,5 +71,9 @@ int	ft_atoi(char *str);
 # define DEBUG
 
 #include <stdio.h>
+
+//_debug_parsing.c
+void	debug_print_map_info(t_map *map);
+void	debug_print_map(t_map *map);
 
 #endif
