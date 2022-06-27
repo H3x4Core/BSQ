@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:49:35 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 18:14:16 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:07:50 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		get_map_height(char *str, int *nbr, int len);
 int		get_map_length(char *str, int *len);
 int		get_map_char(char c, char *cmap);
 int		get_next_line(char *str);
+t_map	*error_map(t_map *map, char *str);
 
 //parsing_utils.c
 int		ft_char_is_numeric(char c);
@@ -71,16 +72,8 @@ void	fill_map(t_map *map, t_sqr big_sqr);
 int		compare_squares(t_map *map, int row, int col, t_sqr *big_sqr);
 int 	solve(t_map *map);
 
-#endif
-
-/**** DEBUG ****/
-#ifndef DEBUG
-# define DEBUG
-
-#include <stdio.h>
-
-//_debug_parsing.c
-void	debug_print_map_info(t_map *map);
-void	debug_print_map(t_map *map);
+//guest_management.c
+char	*ft_strcat(char *dest, char *src);
+char	*read_funny_words(void);
 
 #endif

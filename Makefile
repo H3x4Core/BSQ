@@ -1,0 +1,17 @@
+NAME = bsq
+
+SRC = srcs/*.c
+
+HDR = include/
+
+CFLAGS = -Wall -Wextra -Werror
+
+all: ${NAME}
+
+${NAME}:
+	gcc ${CFLAGS} -o ${NAME} -I ${HDR} ${SRC}
+
+fclean: clean
+	rm -f ${NAME}
+
+re: fclean all
