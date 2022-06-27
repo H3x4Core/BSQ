@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:49:35 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 21:07:50 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:10:03 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ typedef struct s_map
 	char	emp;
 	char	full;
 }			t_map;
-
-typedef struct s_position
-{
-	int		col;
-	int		row;
-}			t_pos;
 
 typedef struct s_square
 {
