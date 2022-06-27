@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:05:10 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 18:16:06 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:52:15 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	free_map(t_map *map)
 		i++;
 	}
 	free(map->map);
+	free(map);
 	return (0);
 }
 
@@ -50,7 +51,7 @@ int	create_blank_map(t_map *map)
 int	get_map_info(t_map *map, char *str)
 {
 	int	i;
-	int len;
+	int	len;
 
 	i = 0;
 	len = get_next_line(&str[i]);
@@ -71,27 +72,28 @@ int	get_map_info(t_map *map, char *str)
 int	get_map_matrix(t_map *map, char *str)
 {
 	int	str_pos;
+	int	str_len_chk;
 	int	i;
 	int	j;
 
-	i = 0;
-	j = 0;
+	i = -1;
 	str_pos = get_next_line(str);
 	if (!create_blank_map(map))
 		return (0);
-	while (i < map->height)
+	while (++i < map->height)
 	{
-		j = 0;
-		while (j < map->width)
+		j = -1;
+		while (++j < map->width)
 		{
 			if (str[str_pos + j] == map->emp || str[str_pos + j] == map->obs)
 				map->map[i][j] = str[str_pos + j];
 			else
 				return (free_map(map));
-			j++;
 		}
+		str_len_chk = str_pos;
 		str_pos += get_next_line(&str[str_pos]);
-		i++;
+		if ((str_pos - 1) - str_len_chk != map->width)
+			return (free_map(map));
 	}
 	return (1);
 }

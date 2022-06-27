@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:00:27 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 18:22:09 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:35:34 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	get_map_length(char *str, int *len)
 	while (ft_char_is_printable(str[i]))
 		i++;
 	if (i)
-		*len = i;
+		*len = i + 1;
 	return (i);
 }
 
