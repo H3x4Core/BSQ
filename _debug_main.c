@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 18:12:25 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 19:10:45 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ int	main (void)
 {
 	t_map *map;
 	char *str;
-	char *filename = "./tools/map0";
+	char *filename = "./tools/map20x20_5";
 	
 	str = read_file(filename);
 	map = parsing(str);
-	debug_print_map_info(map);
-	debug_print_map(map);
-	printf("\n-----\n\n");
+	if (!map)
+		return (0);
 	solve(map);
-	debug_print_map(map);
+	return (0);
 }

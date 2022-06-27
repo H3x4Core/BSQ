@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:23:19 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 18:52:15 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:36:18 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*read_file(char *filename)
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (0);
+	str[0] = 0;
 	if (!len)
 	{
 		free(str);
@@ -63,5 +64,5 @@ t_map	*free_str(char *str)
 {
 	if (str)
 		free(str);
-	return (0);
+	return (NULL);
 }

@@ -6,30 +6,29 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 15:39:12 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:48:36 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int	i;
+	t_map	*map;
+	int		i;
 
 	i = 1;
+	map = 0;
 	if (argc == 1)
 	{
-		// read from input
+		map = parsing(read_funny_words());
+		if (map)
+			solve(map);
 	}
-	else
+	while (i < argc)
 	{
-		while (i < argc)
-		{
-			// parse input
-			// map to matrix
-			// run solver
-			// print solution
-			i++;
-		}
+		map = parsing(read_file(argv[i++]));
+		if (map)
+			solve(map);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:05:10 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 18:52:15 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:42:15 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@ int	free_map(t_map *map)
 		return (0);
 	while (i < map->height)
 	{
-		if (map->map[i])
+		if (map->map[i] != 0)
 			free(map->map[i]);
 		i++;
 	}
-	free(map->map);
-	free(map);
+	map->height = 0;
+	if (map->map)
+		free(map->map);
+	if (map)
+		free(map);
 	return (0);
 }
 
@@ -42,9 +45,10 @@ int	create_blank_map(t_map *map)
 	{
 		map->map[i] = malloc(sizeof(char) * map->width);
 		if (!map->map[i])
-			return (free_map(map));
+			return (0);
 		i++;
 	}
+	map->valid = 0;
 	return (1);
 }
 
@@ -88,12 +92,12 @@ int	get_map_matrix(t_map *map, char *str)
 			if (str[str_pos + j] == map->emp || str[str_pos + j] == map->obs)
 				map->map[i][j] = str[str_pos + j];
 			else
-				return (free_map(map));
+				return (0);
 		}
 		str_len_chk = str_pos;
 		str_pos += get_next_line(&str[str_pos]);
 		if ((str_pos - 1) - str_len_chk != map->width)
-			return (free_map(map));
+			return (0);
 	}
 	return (1);
 }
@@ -102,15 +106,17 @@ t_map	*parsing(char *str)
 {
 	t_map	*map;
 
+	map = 0;
 	if (!str)
-		return (0);
+		return (error_map(map, str));
 	map = malloc(sizeof(t_map));
 	if (!map)
-		return (free_str(str));
+		return (error_map(map, str));
 	if (!get_map_info(map, str))
-		return (free_str(str));
+		return (error_map(map, str));
 	if (!get_map_matrix(map, str))
-		return (free_str(str));
+		return (error_map(map, str));
+	map->valid = 1;
 	free_str(str);
 	return (map);
 }

@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:04:09 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/27 17:52:20 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:49:34 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	get_square_size(t_map *map, int row, int col)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < map->height)
 	{
@@ -85,13 +85,13 @@ void	display_map(t_map	*map)
 	free_map(map);
 }
 
-int solve(t_map *map)
+int	solve(t_map *map)
 {
-	int	row;
-	int	col;
+	int		row;
+	int		col;
 	t_sqr	big_sqr;
 
-	big_sqr.size = 0;	
+	big_sqr.size = 0;
 	big_sqr.pos_row = 0;
 	big_sqr.pos_col = 0;
 	row = 0;
