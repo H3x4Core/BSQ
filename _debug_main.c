@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*   _debug_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 16:59:26 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 17:51:11 by matwinte         ###   ########.fr       */
+/*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
+/*   Updated: 2022/06/27 17:52:52 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	ft_char_is_numeric(char c)
+int	main (void)
 {
-	if (c < '0' || '9' < c)
-		return (0);
-	return (1);
-}
-
-int	ft_char_is_printable(char c)
-{
-	if (c < ' ' || '~' < c)
-		return (0);
-	return (1);
+	t_map *map;
+	char *str;
+	char *filename = "./tools/map0";
+	
+	map = parsing(str);
+	debug_print_map_info(map);
+	debug_print_map(map);
+	printf("\n-----\n\n");
+	solve(map);
+	debug_print_map(map);
 }
