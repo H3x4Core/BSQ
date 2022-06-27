@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:23:19 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 14:43:06 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 17:52:07 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,11 @@ char	*read_file(char *filename)
 	}
 	ft_strncpy(str, buffer, len);
 	return (str);
+}
+
+int free_str(char *str)
+{
+	if (str)
+		free(str);
+	return (0);
 }

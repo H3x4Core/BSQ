@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:05:10 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 17:04:50 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 17:50:32 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,18 +94,19 @@ int	get_map_matrix(t_map *map, char *str)
 	return (1);
 }
 
-t_map	*parsing(char *filename)
+t_map	*parsing(char *str)
 {
 	t_map	*map;
-	char	*str;
 
+	if (!str)
+		return (0);
 	map = malloc(sizeof(t_map));
 	if (!map)
-		return (0);
-	str = read_file(filename);
+		return (free_str(str));
 	if (!get_map_info(map, str))
-		return (0);
+		return (free_str(str));
 	if (!get_map_matrix(map, str))
-		return (0);
+		return (free_str(str));
+	free_str(str);
 	return (map);
 }
