@@ -6,24 +6,27 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:00:27 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 17:09:50 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:22:09 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	get_map_height(char *str, int *nbr)
+int	get_map_height(char *str, int *nbr, int len)
 {
 	int	i;
 
 	i = 0;
 	*nbr = 0;
-	while (ft_char_is_numeric(str[i]))
+	len -= 4;
+	while (ft_char_is_numeric(str[i]) && i < len)
 	{
 		*nbr *= 10;
 		*nbr += (str[i] - '0');
 		i++;
 	}
+	if (i != len)
+		*nbr = 0;
 	return (i);
 }
 

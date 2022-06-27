@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:05:10 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 17:50:32 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:16:06 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,16 @@ int	create_blank_map(t_map *map)
 int	get_map_info(t_map *map, char *str)
 {
 	int	i;
+	int len;
 
 	i = 0;
-	i += get_map_height(str, &map->height);
-	i += get_map_char(str[i], &map->emp);
-	i += get_map_char(str[i], &map->obs);
-	i += get_map_char(str[i], &map->full);
+	len = get_next_line(&str[i]);
+	i += get_map_height(str, &map->height, len);
+	i += get_map_char(str[len - 4], &map->emp);
+	i += get_map_char(str[len - 3], &map->obs);
+	i += get_map_char(str[len - 2], &map->full);
 	i += get_next_line(&str[i]);
-	get_map_length(&str[i], &map->width);
+	get_map_length(&str[len + 1], &map->width);
 	if (map->height < 1 || map->width < 1
 		|| map->emp == 0 || map->obs == 0
 		|| map->full == 0 || map->emp == map->obs
