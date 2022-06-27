@@ -11,7 +11,7 @@ all: ${NAME}
 ${NAME}:
 	gcc ${CFLAGS} -o ${NAME} -I ${HDR} ${SRC}
 
-fclean: clean
+fclean:
 	rm -f ${NAME}
 
 re: fclean all

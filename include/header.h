@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:49:35 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 21:07:50 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:27:27 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,12 @@ typedef struct s_map
 	char	full;
 }			t_map;
 
-typedef struct s_position
-{
-	int		col;
-	int		row;
-}			t_pos;
-
 typedef struct s_square
 {
-
-    int    size;
-    int    pos_row;
-    int    pos_col;
-}            t_sqr;
+	int		size;
+	int		pos_row;
+	int		pos_col;
+}			t_sqr;
 
 //read_file.c
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
@@ -70,7 +63,7 @@ int		ft_char_is_printable(char c);
 int		get_square_size(t_map *map, int row, int col);
 void	fill_map(t_map *map, t_sqr big_sqr);
 int		compare_squares(t_map *map, int row, int col, t_sqr *big_sqr);
-int 	solve(t_map *map);
+int		solve(t_map *map);
 
 //guest_management.c
 char	*ft_strcat(char *dest, char *src);
