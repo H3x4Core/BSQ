@@ -56,35 +56,6 @@ void	fill_map(t_map *map, t_sqr big_sqr)
 		i++;
 	}
 }
-/*
-char	**create_map(void)
-{
-	char	**map_array;
-	char	*line1 = ".........o.................";
-	char	*line2 = "....o................o.....";
-	char	*line3 = "............o..............";
-	char	*line4 = "........o..................";
-	char	*line5 = "....o......................";
-	char	*line6 = "...............o...........";
-	char	*line7 = "...........................";
-	char	*line8 = "......o..............o.....";
-	char	*line9 = "..o.......o................";
-
-
-	map_array = (char **)malloc(1000);
-
-	map_array[0] = line1;
-	map_array[1] = line2;
-	map_array[2] = line3;
-	map_array[3] = line4;
-	map_array[4] = line5;
-	map_array[5] = line6;
-	map_array[6] = line7;
-	map_array[7] = line8;
-	map_array[8] = line9;
-
-	return (map_array);
-}*/
 
 int	compare_squares(t_map *map, int row, int col, t_sqr *big_sqr)
 {
@@ -98,6 +69,20 @@ int	compare_squares(t_map *map, int row, int col, t_sqr *big_sqr)
 		big_sqr->pos_row = row;
 	}
 	return (found_size);
+}
+
+void	display_map(t_map	*map)
+{
+	int	i;
+
+	i = 0;
+	while (i < map->height)
+	{
+		write (1, map->map[i], map->width);
+		write (1, "\n", 1);
+		i++;
+	}
+	free_map(map);
 }
 
 int solve(t_map *map)
@@ -123,30 +108,6 @@ int solve(t_map *map)
 		row++;
 	}
 	fill_map(map, big_sqr);
+	display_map(map);
 	return (1);
 }
-/*
-int	main(void)
-{
-	t_map	map;
-
-	map.width = 27;
-	map.height = 9;
-	map.obs = 'o';
-	map.emp = '.';
-	map.full = 'x';
-	map.map = create_map();
-
-	t_sqr	big_sqr;
-	big_sqr.size = 0;
-	big_sqr.pos_row = 0;
-	big_sqr.pos_col = 0;
-
-	big_sqr = solve(map, big_sqr);
-
-	printf("\nWe're done, here is the result :\n");
-	printf("size = %d, pos = %d %d", big_sqr.size, big_sqr.pos_row, big_sqr.pos_col);
-
-	fill_map(map, big_sqr);
-	return (0);
-}*/
