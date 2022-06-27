@@ -12,16 +12,24 @@
 
 #include "header.h"
 
-int hello_world(void)
+int	main (int argc, char **argv)
 {
-	printf("hello world!\n");
-}
+	int	i;
 
-int main (int argc, char **argv)
-{
-	// receive input
-	// parsing
-	// map to matrix
-	// solve
-	// print
+	i = 1;
+	if (argc == 1)
+	{
+		// read from input
+	}
+	else
+	{
+		while (i < argc)
+		{
+			// parse input
+			// map to matrix
+			// run solver
+			// print solution
+			i++;
+		}
+	}
 }
