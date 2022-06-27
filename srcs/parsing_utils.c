@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 06:07:10 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 14:20:17 by matwinte         ###   ########.fr       */
+/*   Created: 2022/06/27 16:59:26 by matwinte          #+#    #+#             */
+/*   Updated: 2022/06/27 17:08:52 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "header.h"
 
 int	ft_char_is_numeric(char c)
 {
@@ -17,40 +19,9 @@ int	ft_char_is_numeric(char c)
 	return (1);
 }
 
-int	ft_char_is_sign(char c)
+int	ft_char_is_printable(char c)
 {
-	if (c == '+')
-		return (1);
-	if (c == '-')
-		return (-1);
-	return (0);
-}
-
-int	ft_isspace(char c)
-{
-	if ((8 < c && c < 14) || c == ' ')
-		return (1);
-	return (0);
-}
-
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	sign;
-	int	nbr;
-
-	i = 0;
-	sign = 1;
-	nbr = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	while (ft_char_is_sign(str[i]))
-			sign *= ft_char_is_sign(str[i++]);
-	while (ft_char_is_numeric(str[i]))
-	{
-		nbr *= 10;
-		nbr += (str[i] - '0');
-		i++;
-	}
-	return (nbr * sign);
+	if (c < ' ' || '~' < c)
+		return (0);
+	return (1);
 }
