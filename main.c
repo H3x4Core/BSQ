@@ -5,16 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 12:50:16 by mwinter           #+#    #+#             */
-/*   Updated: 2022/06/27 12:55:21 by matwinte         ###   ########.fr       */
+/*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
+/*   Updated: 2022/06/27 13:51:18 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-
-
-int main(void)
+int hello_world(void)
 {
 	printf("hello world!\n");
+}
+
+int main (int argc, char **argv)
+{
+	// receive input
+	// parsing
+	// map to matrix
+	// solve
+	// print
 }
