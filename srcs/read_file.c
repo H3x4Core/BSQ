@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:23:19 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 20:36:18 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:25:21 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	*read_file(char *filename)
 	int		len;
 	char	*str;
 
+	len = 0;
+	buffer[0] = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (0);
@@ -50,7 +52,6 @@ char	*read_file(char *filename)
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (0);
-	str[0] = 0;
 	if (!len)
 	{
 		free(str);
