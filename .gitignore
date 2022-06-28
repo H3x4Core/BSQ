@@ -1,6 +1,9 @@
 # bsq compiled
 bsq
 
+# test tool -> source : https://github.com/YuuK10/BSQ-tests
+test_tool
+
 # Apple specific
 .DS_Store
 
