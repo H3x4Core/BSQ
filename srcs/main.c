@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/29 14:58:27 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 16:05:54 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	main(int argc, char **argv)
 		fd = open_file(argv[i++]);
 		map = parsing(fd);
 		close(fd);
-		debug_print_map_info(map);
-		debug_print_map(map);
 		if (map)
+		{
 			solve(map);
+		}
 		if (argc != 1 && i != argc)
 			write(1, "\n", 1);
 	}
