@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:49:35 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/29 15:52:05 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 16:29:56 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@
 # include <unistd.h>	// close, read, write
 # include <stdlib.h>	// malloc
 
-# define BUF_SIZE 4096
 # define BUF_META_DATA 100
 # define BUF_FIRST_LINE 10002
 
 typedef struct s_map
 {
 	char	**map;
-	char	***pmap;
 	char	*meta_data;
 	char	*line;
 	int		width;
@@ -40,21 +38,6 @@ typedef struct s_square
 	int		pos_row;
 	int		pos_col;
 }			t_sqr;
-
-/*
-//read_file.c
-char	*ft_strncpy(char *dest, char *src, unsigned int n);
-char	*read_file(char *filename);
-t_map	*free_str(char *str);
-*/
-//parsing.c
-/*
-int		free_map(t_map *map);
-int		create_blank_map(t_map *map);
-int		get_map_info(t_map *map, int fd);
-int		get_map_matrix(t_map *map, int fd);
-t_map	*parsing(int fd);
-*/
 
 //parsing_v2.c - BERZERK EDITION
 void	get_meta_data(t_map *map, int len);
@@ -97,22 +80,5 @@ int		free_map_line(t_map *map);
 int		free_map_map(t_map *map);
 int		free_map_meta(t_map *map);
 int		free_map(t_map *map);
-
-/*
-//guest_management.c
-char	*ft_strcat(char *dest, char *src);
-char	*read_funny_words(void);
-*/
-
-#endif
-
-
-/**DEBUG**/
-#ifndef DEBUG
-# define DEBUG
-
-#include <stdio.h>
-void	debug_print_map_info(t_map *map);
-void	debug_print_map(t_map *map);
 
 #endif
