@@ -8,7 +8,7 @@ INCLUDES	= -I include/
 
 SRCSF = srcs/
 
-SRCS = ${SRCSF}_debug_parsing.c ${SRCSF}main.c ${SRCSF}parsing_v2.c ${SRCSF}parsing_helper.c ${SRCSF}parsing_utils.c ${SRCSF}solver.c
+SRCS = ${SRCSF}_debug_parsing.c ${SRCSF}free.c ${SRCSF}main.c ${SRCSF}parsing_helper.c ${SRCSF}parsing_matrix.c ${SRCSF}parsing_read.c ${SRCSF}parsing_utils.c ${SRCSF}parsing_v2.c ${SRCSF}solver.c
 
 OBJS		= ${SRCS:.c=.o}
 

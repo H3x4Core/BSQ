@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:04:09 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/29 08:56:35 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 15:14:30 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,19 @@ int	get_square_size(t_map *map, int row, int col)
 	while (i < map->height)
 	{
 		j = 0;
-		while (j <= i && row + j < map->height)
+		//while (j <= i && row + j < map->height)
+		while (j <= i && row + i < map->height)
 		{
+			printf("\n");
+			debug_print_map_info(map);
+			debug_print_map(map); /////DEBUUUUUUUUUUUUUUUG
+			printf("\n");
 			if (map->map[row + i][col + j] == map->obs)
 				return (i);
 			j++;
 		}
 		j = 0;
-		while (j <= i && col + j < map->width)
+		while (j <= i && col + i < map->width)
 		{
 			if (map->map[row + j][col + i] == map->obs)
 				return (i);
@@ -36,7 +41,7 @@ int	get_square_size(t_map *map, int row, int col)
 		}
 		i++;
 	}
-	return (i + 1);
+	return (i);
 }
 
 void	fill_map(t_map *map, t_sqr big_sqr)
@@ -101,9 +106,8 @@ int	solve(t_map *map)
 		while (col < map->width - big_sqr.size)
 		{
 			if (map->map[row][col] == map->emp)
-				col += compare_squares(map, row, col, &big_sqr);
-			else
-				col++;
+				compare_squares(map, row, col, &big_sqr);
+			col++;
 		}
 		row++;
 	}
