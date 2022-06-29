@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/29 14:27:23 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 16:05:54 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 	{
 		map = parsing(fd);
-		solve(map);
+		if (map)
+			solve(map);
 	}
 	while (i < argc)
 	{
@@ -31,7 +32,9 @@ int	main(int argc, char **argv)
 		map = parsing(fd);
 		close(fd);
 		if (map)
+		{
 			solve(map);
+		}
 		if (argc != 1 && i != argc)
 			write(1, "\n", 1);
 	}

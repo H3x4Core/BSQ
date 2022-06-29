@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:49:35 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/29 14:27:48 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 15:52:05 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>	// malloc
 
 # define BUF_SIZE 4096
+# define BUF_META_DATA 100
+# define BUF_FIRST_LINE 10002
 
 typedef struct s_map
 {
@@ -55,19 +57,22 @@ t_map	*parsing(int fd);
 */
 
 //parsing_v2.c - BERZERK EDITION
-int		open_file(char *filename);
-int		read_meta_data(int fd, int *len, t_map *map);
-int		read_first_line(int fd, int *len, t_map *map);
-int		read_middle_line(int fd, int *len, t_map *map);
-int		read_last_line(int fd);
-int		free_map(t_map *map);
-int		create_blank_map(t_map *map);
 void	get_meta_data(t_map *map, int len);
 int		check_map_meta_data(t_map *map);
 int		get_map_info(t_map *map, int fd);
-int		matrix_line(t_map *map, int row);
-int		get_map_matrix(t_map *map, int fd);
 t_map	*parsing(int fd);
+
+//parsing_matrix.c
+int		create_blank_map(t_map *map);
+int		matrix_line(t_map *map, int row);
+int		matrix_read_and_line(int fd, int *i, t_map *map);
+int		get_map_matrix(t_map *map, int fd);
+
+//parsing_read.c
+int		read_meta_data(int fd, int *len, t_map *map);
+int		read_first_line(int fd, int *len, t_map *map);
+int		read_middle_line(int fd, t_map *map);
+int		read_last_line(int fd);
 
 //parsing_helper.c
 int		get_map_height(char *str, int *nbr, int len);
@@ -77,6 +82,7 @@ int		get_line_len(char *str);
 t_map	*error_map(t_map *map);
 
 //parsing_utils.c
+int		open_file(char *filename);
 int		ft_char_is_numeric(char c);
 int		ft_char_is_printable(char c);
 
@@ -85,6 +91,12 @@ int		get_square_size(t_map *map, int row, int col);
 void	fill_map(t_map *map, t_sqr big_sqr);
 int		compare_squares(t_map *map, int row, int col, t_sqr *big_sqr);
 int		solve(t_map *map);
+
+//free.c
+int		free_map_line(t_map *map);
+int		free_map_map(t_map *map);
+int		free_map_meta(t_map *map);
+int		free_map(t_map *map);
 
 /*
 //guest_management.c
