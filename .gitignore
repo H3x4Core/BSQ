@@ -1,8 +1,12 @@
 # bsq compiled
 bsq
+bsq.log
 
 # test tool -> source : https://github.com/YuuK10/BSQ-tests
 test_tool
+
+# valgrind
+vgcore.*
 
 # Apple specific
 .DS_Store
