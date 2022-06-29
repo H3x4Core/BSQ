@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:49:35 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/29 08:55:47 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:27:48 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ int		check_map_meta_data(t_map *map);
 int		get_map_info(t_map *map, int fd);
 int		matrix_line(t_map *map, int row);
 int		get_map_matrix(t_map *map, int fd);
-t_map	*parsing(int fd, t_map *map);
+t_map	*parsing(int fd);
 
 //parsing_helper.c
 int		get_map_height(char *str, int *nbr, int len);
 int		get_map_length(char *str, int *len);
 int		get_map_char(char c, char *cmap);
 int		get_line_len(char *str);
-t_map	*error_map(void);
+t_map	*error_map(t_map *map);
 
 //parsing_utils.c
 int		ft_char_is_numeric(char c);

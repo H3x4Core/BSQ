@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 00:42:19 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/29 08:58:27 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:26:05 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,7 +268,7 @@ int	get_map_matrix(t_map *map, int fd)
 
 t_map	*parsing(int fd)
 {
-	t_map	*map;
+	t_map *map;
 
 	map = 0;
 	if (fd < 0)

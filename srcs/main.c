@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/29 08:48:13 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:27:23 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_map	*map;
 	int		i;
 	int		fd;
 
@@ -22,15 +22,16 @@ int	main(int argc, char **argv)
 	fd = 0;
 	if (argc == 1)
 	{
-		parsing(fd, &map);
-		solve(&map);
+		map = parsing(fd);
+		solve(map);
 	}
 	while (i < argc)
 	{
 		fd = open_file(argv[i++]);
-		parsing(fd, &map);
+		map = parsing(fd);
 		close(fd);
-		solve(&map);
+		if (map)
+			solve(map);
 		if (argc != 1 && i != argc)
 			write(1, "\n", 1);
 	}
