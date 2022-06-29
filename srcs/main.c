@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/28 18:45:10 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 12:10:13 by mpouce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	}
 	while (i < argc)
 	{
+		printf("file is %s\n", argv[i]); // DEBUG
 		map = parsing(read_file(argv[i++]));
 		if (map)
 			solve(map);

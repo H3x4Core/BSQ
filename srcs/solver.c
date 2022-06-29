@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:04:09 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/27 21:37:06 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 12:28:26 by mpouce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	display_map(t_map	*map)
 	free_map(map);
 }
 
+#include <stdio.h>
+
 int	solve(t_map *map)
 {
 	int		row;
@@ -98,10 +100,13 @@ int	solve(t_map *map)
 	while (row < map->height - big_sqr.size)
 	{
 		col = 0;
-		while (col < map->width - big_sqr.size)
+		while (col < map->width - big_sqr.size - 80)
 		{
 			if (map->map[row][col] == map->emp)
-				col += compare_squares(map, row, col, &big_sqr);
+			{
+				compare_squares(map, row, col, &big_sqr);
+				col++;
+			}
 			else
 				col++;
 		}

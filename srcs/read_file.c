@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:23:19 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 21:25:21 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:17:24 by mpouce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,36 @@ Output:
 * ************************************************************************** */
 char	*read_file(char *filename)
 {
+	printf("maybe its a buffer issue.\n"); // DEBUG
 	char	buffer[BUF_SIZE + 1];
 	int		fd;
 	int		len;
 	char	*str;
 
-	len = 0;
-	buffer[0] = 0;
+	write (1, "reading file\n", 13); // DEBUG
+	len = 1;
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (0);
-	len = read(fd, buffer, BUF_SIZE);
+	str = malloc(5000000000);
+	while (len > 0)
+	{
+		len = read(fd, buffer, BUF_SIZE);
+		printf("len = %d\n", len); // DEBUG
+		printf("%s\n", buffer); // DEBUG
+		str = ft_strcat(str, buffer);
+	}
+	printf("\nfinal shit : %s\n", str);
 	close(fd);
-	str = malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (0);
-	if (!len)
+	/*if (!len)
 	{
 		free(str);
 		return (0);
-	}
-	ft_strncpy(str, buffer, len);
+	}*/
+	printf("readfile is done"); // DEBUG
+	//ft_strncpy(str, buffer, len);
 	return (str);
 }
 

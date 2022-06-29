@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:49:35 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 21:27:27 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:00:59 by mpouce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include <unistd.h>	// close, read, write
 # include <stdlib.h>	// malloc
 
-# define BUF_SIZE 4096
+# include <stdio.h>		// printf DEBUG
+
+# define BUF_SIZE 101
 
 typedef struct s_map
 {
