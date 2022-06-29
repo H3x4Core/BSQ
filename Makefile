@@ -1,17 +1,31 @@
 NAME = bsq
 
-SRC = srcs/*.c
+CC			= gcc
 
-HDR = include/
+CFLAGS		= -Wall -Wextra -Werror
 
-CFLAGS = -Wall -Wextra -Werror
+INCLUDES	= -I include/
+
+SRCSF = srcs/
+
+SRCS = ${SRCSF}_debug_parsing.c ${SRCSF}main.c ${SRCSF}parsing_v2.c ${SRCSF}parsing_helper.c ${SRCSF}parsing_utils.c ${SRCSF}solver.c
+
+OBJS		= ${SRCS:.c=.o}
+
+RM			= rm -f
+
+.c.o	:
+		${CC} ${CFLAGS} ${INCLUDES} -c $< -o $@
 
 all: ${NAME}
 
-${NAME}:
-	gcc ${CFLAGS} -o ${NAME} -I ${HDR} ${SRC}
+${NAME}: ${OBJS}
+	gcc ${CFLAGS} -o ${NAME} ${INCLUDES} ${OBJS}
 
-fclean:
-	rm -f ${NAME}
+clean 	:
+		${RM} ${OBJS}
+
+fclean: clean
+	${RM} ${NAME}
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:04:09 by mpouce            #+#    #+#             */
-/*   Updated: 2022/06/27 21:37:06 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 08:56:35 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	display_map(t_map	*map)
 		write (1, "\n", 1);
 		i++;
 	}
-	free_map(map);
+	//free_map(map);
 }
 
 int	solve(t_map *map)

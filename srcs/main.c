@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 12:50:16 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/28 18:45:10 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 08:48:13 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 int	main(int argc, char **argv)
 {
-	t_map	*map;
+	t_map	map;
 	int		i;
+	int		fd;
 
 	i = 1;
-	map = 0;
+	fd = 0;
 	if (argc == 1)
 	{
-		map = parsing(read_funny_words());
-		if (map)
-			solve(map);
+		parsing(fd, &map);
+		solve(&map);
 	}
 	while (i < argc)
 	{
-		map = parsing(read_file(argv[i++]));
-		if (map)
-			solve(map);
+		fd = open_file(argv[i++]);
+		parsing(fd, &map);
+		close(fd);
+		solve(&map);
 		if (argc != 1 && i != argc)
 			write(1, "\n", 1);
 	}

@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:00:27 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/27 20:50:10 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 08:55:00 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_map_height(char *str, int *nbr, int len)
 
 	i = 0;
 	*nbr = 0;
-	len -= 4;
+	len -= 3;
 	while (ft_char_is_numeric(str[i]) && i < len)
 	{
 		*nbr *= 10;
@@ -51,24 +51,20 @@ int	get_map_char(char c, char *cmap)
 	return (1);
 }
 
-int	get_next_line(char *str)
+int	get_line_len(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\n' && str[i] != 0)
 		i++;
-	if (str[i] == '\n')
-		return (i + 1);
 	return (i);
 }
 
-t_map	*error_map(t_map *map, char *str)
+t_map	*error_map(void)
 {
-	if (map)
-		free_map(map);
-	if (str)
-		free(str);
+	//if (map)
+	//	free_map(map);
 	write(2, "map error\n", 10);
 	return (NULL);
 }
