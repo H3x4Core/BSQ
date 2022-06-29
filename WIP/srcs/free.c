@@ -6,7 +6,7 @@
 /*   By: matwinte <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 15:40:42 by matwinte          #+#    #+#             */
-/*   Updated: 2022/06/29 15:46:23 by matwinte         ###   ########.fr       */
+/*   Updated: 2022/06/29 16:15:25 by matwinte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	free_map_map(t_map *map)
 {
 	int	i;
 
+	i = 0;
 	if (map->map)
 	{
 		while (i < map->height)
